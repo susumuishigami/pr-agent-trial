@@ -1,5 +1,5 @@
 test:
-	pytest tests --cov=functions \
+	pytest tests --cov=maidnomadweb \
 		--cov-report=term-missing \
 		-m "not slow"
 	@printf "\e[32;1mtest ok\e[m\n"
@@ -20,14 +20,14 @@ lint:
 	mypy maidnomadweb tests
 	@printf "\e[32;1mlint ok\e[m\n"
 
-pip_dev:
+pip:
 	pip install -r requirements_dev.txt -c requirements.lock
-
-pip_prod:
-	pip install -r requirements.txt -c requirements.lock
 
 runserver:
 	python maidnomadweb/manage.py runserver
+
+makemigrations:
+	python maidnomadweb/manage.py makemigrations
 
 migrate:
 	python maidnomadweb/manage.py migrate
