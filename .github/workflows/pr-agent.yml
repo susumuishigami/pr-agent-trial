@@ -21,6 +21,7 @@ jobs:
         env:
           OPENAI_KEY:   ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          config.model: "o1-mini"
           PR_DESCRIPTION.EXTRA_INSTRUCTIONS:
             すべて日本語で記述してください。
           PR_REVIEWER.EXTRA_INSTRUCTIONS:
