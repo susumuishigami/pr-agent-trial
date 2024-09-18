@@ -6,16 +6,19 @@ from django.db.models.fields import (
     IntegerField,
     TextField,
 )
+from mdeditor.fields import MDTextField
 
 
 class MaidProfile(Model):
     code = CharField("英語表記", max_length=50, unique=True)
     name = CharField("名前", max_length=128)
-    content = TextField("自己紹介", blank=True)
+    description = TextField("Description", blank=True)
+    content = MDTextField("自己紹介", blank=True)
     thumbnail_image = ImageField(
         "サムネイル画像", upload_to="maidlist_thumbnail/", null=True, blank=True
     )
     main_image = ImageField("メイン画像", upload_to="maidlist_main/", null=True, blank=True)
+    og_image = ImageField("OGP画像", upload_to="maidlist_ogp/", null=True, blank=True)
 
     visible = BooleanField("表示", default=True)
     order = IntegerField("表示順", default=0, db_index=True)
