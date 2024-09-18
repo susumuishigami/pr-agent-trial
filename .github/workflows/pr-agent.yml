@@ -21,10 +21,13 @@ jobs:
         env:
           OPENAI_KEY:   ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          CONFIG.MODEL: o1-mini
-          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "日本語を使用してください"
-          PR_REVIEWER.EXTRA_INSTRUCTIONS: "日本語を使用してください"
-          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "日本語を使用してください"
+          CONFIG.MODEL: gpt-4o-mini
+          PR_DESCRIPTION.EXTRA_INSTRUCTIONS:
+            説明はすべて日本語で記述してください。
+          PR_REVIEWER.EXTRA_INSTRUCTIONS:
+            すべての説明、コメント、フィードバックは日本語で記述してください。
+          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS:
+            すべての説明、コメント、フィードバックは日本語で記述してください。
           PR_REVIEWER.INLINE_CODE_COMMENTS: true
           GITHUB_ACTION.AUTO_DESCRIBE: true
           GITHUB_ACTION.AUTO_REVIEW: true
