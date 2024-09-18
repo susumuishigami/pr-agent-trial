@@ -3,6 +3,8 @@ name: pr-agent
 on:
   pull_request:
     types: [opened]
+    branches:
+      - "**"
   issue_comment:
     types: [created, edited]
 
