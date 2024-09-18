@@ -1,0 +1,15 @@
+{% extends "stafflist/detail.html" %}
+{% load static %}
+
+{% block entry_header_content %}
+{# ヘッダーエリア #}
+        <div class="entry-thumbnail">
+            {% if image_url %}
+                <img width="300" height="270" src="{{ image_url }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{ profile.name }}" loading="lazy" />
+            {% else %}
+                <img width="300" height="270" src="{% static 'organizerlist/no_image.png' %}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{ profile.name }}" loading="lazy" />
+            {% endif %}
+        </div>
+        
+        <h1 class="entry-title">{{ profile.name }}</h1>
+{% endblock %}
