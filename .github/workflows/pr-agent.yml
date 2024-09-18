@@ -1,0 +1,29 @@
+name: pr-agent
+
+on:
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created, edited]
+
+permissions:
+  pull-requests: write
+  issues:        write
+
+jobs:
+  pr_agent:
+    runs-on: ubuntu-latest
+    name: Run PR Agent
+    if: ${{ github.event.sender.type != 'Bot' }}
+    steps:
+      - id: pr-agent
+        uses: Codium-ai/pr-agent@main
+        env:
+          OPENAI_KEY:   ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: "answer in Japanese"
+          PR_REVIEWER.EXTRA_INSTRUCTIONS: "answer in Japanese"
+          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: "answer in Japanese"
+          github_action.auto_describe: true
+          github_action.auto_review:   true
+          github_action.auto_improve:  true
